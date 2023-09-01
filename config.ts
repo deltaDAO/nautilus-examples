@@ -1,8 +1,12 @@
 import { PricingConfigWithoutOwner } from '@deltadao/nautilus'
 
-export const CONFIG = {
-  PONTUSX: {
-    NETWORK_CONFIG: {
+export enum Network {
+  PONTUSX = "PONTUSX",
+  MUMBAI = "MUMBAI"
+}
+
+export const NETWORK_CONFIG = {
+  [Network.PONTUSX]: {
       chainId: 100,
       network: 'genx',
       metadataCacheUri: 'https://aquarius510.v4.delta-dao.com',
@@ -15,39 +19,8 @@ export const CONFIG = {
       dispenserAddress: '0x94cb8FC8719Ed09bE3D9c696d2037EA95ef68d3e',
       nftFactoryAddress: '0x6cb85858183B82154921f68b434299EC4281da53',
       providerAddress: '0x68C24FA5b2319C81b34f248d1f928601D2E5246B',
-    },
-    PRICING_CONFIG: {
-      FREE: {
-        type: 'free',
-      } as PricingConfigWithoutOwner,
-      FIXED_OCEAN: {
-        type: 'fixed',
-        freCreationParams: {
-          fixedRateAddress: '0xAD8E7d2aFf5F5ae7c2645a52110851914eE6664b', // Fixed Rate contract address on Pontus-X Network
-          baseTokenAddress: '0x0995527d3473b3a98c471f1ed8787acd77fbf009', // OCEAN token contract address on Pontus-X Network
-          baseTokenDecimals: 18, // adjusted to OCEAN token on Pontus-X Network
-          datatokenDecimals: 18,
-          fixedRate: '1', // PRICE
-          marketFee: '0',
-          marketFeeCollector: '0x0000000000000000000000000000000000000000',
-        },
-      } as PricingConfigWithoutOwner,
-      FIXED_EUROE: {
-        type: 'fixed',
-        freCreationParams: {
-          fixedRateAddress: '0xAD8E7d2aFf5F5ae7c2645a52110851914eE6664b', // Fixed Rate Contract address on Pontus-X Network
-          baseTokenAddress: '0xe974c4894996E012399dEDbda0bE7314a73BBff1', // EUROe token contract address on Pontus-X Network
-          baseTokenDecimals: 6, // adjusted to EUROe on Pontus-X Network
-          datatokenDecimals: 18,
-          fixedRate: '1', // PRICE
-          marketFee: '0',
-          marketFeeCollector: '0x0000000000000000000000000000000000000000',
-        },
-      } as PricingConfigWithoutOwner,
-    },
   },
-  MUMBAI: {
-    NETWORK_CONFIG: {
+  [Network.MUMBAI]: {
       chainId: 80001,
       network: 'mumbai',
       metadataCacheUri: 'https://v4.aquarius.oceanprotocol.com',
@@ -74,35 +47,66 @@ export const CONFIG = {
       DFRewards: '0x4259c164eedA7483dda2b4b622D761A88674D31f',
       DFStrategyV1: '0x1be9C72500B41c286C797D4FE727747Ae9C4E195',
       veFeeEstimate: '0xCFeF55c6ae4d250586e293f29832967a04A9087d',
-    },
-    PRICING_CONFIG: {
+  }
+}
+
+export const PRICING_CONFIG = {
+  [Network.PONTUSX]: {
       FREE: {
-        type: 'free',
+          type: 'free',
       } as PricingConfigWithoutOwner,
       FIXED_OCEAN: {
-        type: 'fixed',
-        freCreationParams: {
-          fixedRateAddress: '0x25e1926E3d57eC0651e89C654AB0FA182C6D5CF7', // Fixed Rate Contract address on Mumbai network
-          baseTokenAddress: '0xd8992Ed72C445c35Cb4A2be468568Ed1079357c8', // OCEAN token contract address on Mumbai network
-          baseTokenDecimals: 18, // adjusted to OCEAN token
-          datatokenDecimals: 18,
-          fixedRate: '1', // PRICE
-          marketFee: '0',
-          marketFeeCollector: '0x0000000000000000000000000000000000000000',
-        },
+          type: 'fixed',
+          freCreationParams: {
+              fixedRateAddress: '0xAD8E7d2aFf5F5ae7c2645a52110851914eE6664b',
+              baseTokenAddress: '0x0995527d3473b3a98c471f1ed8787acd77fbf009',
+              baseTokenDecimals: 18,
+              datatokenDecimals: 18,
+              fixedRate: '1',
+              marketFee: '0',
+              marketFeeCollector: '0x0000000000000000000000000000000000000000',
+          },
       } as PricingConfigWithoutOwner,
       FIXED_EUROE: {
-        type: 'fixed',
-        freCreationParams: {
-          fixedRateAddress: '0x25e1926E3d57eC0651e89C654AB0FA182C6D5CF7', // Fixed Rate Contract address on Mumbai network
-          baseTokenAddress: '0xA089a21902914C3f3325dBE2334E9B466071E5f1', // EUROe token contract address on Mumbai network
-          baseTokenDecimals: 6, // adjusted to EUROe token on Mumbai network
-          datatokenDecimals: 18,
-          fixedRate: '1', // PRICE
-          marketFee: '0',
-          marketFeeCollector: '0x0000000000000000000000000000000000000000',
-        },
+          type: 'fixed',
+          freCreationParams: {
+              fixedRateAddress: '0xAD8E7d2aFf5F5ae7c2645a52110851914eE6664b',
+              baseTokenAddress: '0xe974c4894996E012399dEDbda0bE7314a73BBff1',
+              baseTokenDecimals: 6,
+              datatokenDecimals: 18,
+              fixedRate: '1',
+              marketFee: '0',
+              marketFeeCollector: '0x0000000000000000000000000000000000000000',
+          },
       } as PricingConfigWithoutOwner,
-    },
   },
+  [Network.MUMBAI]: {
+      FREE: {
+          type: 'free',
+      } as PricingConfigWithoutOwner,
+      FIXED_OCEAN: {
+          type: 'fixed',
+          freCreationParams: {
+              fixedRateAddress: '0x25e1926E3d57eC0651e89C654AB0FA182C6D5CF7',
+              baseTokenAddress: '0xd8992Ed72C445c35Cb4A2be468568Ed1079357c8',
+              baseTokenDecimals: 18,
+              datatokenDecimals: 18,
+              fixedRate: '1',
+              marketFee: '0',
+              marketFeeCollector: '0x0000000000000000000000000000000000000000',
+          },
+      } as PricingConfigWithoutOwner,
+      FIXED_EUROE: {
+          type: 'fixed',
+          freCreationParams: {
+              fixedRateAddress: '0x25e1926E3d57eC0651e89C654AB0FA182C6D5CF7',
+              baseTokenAddress: '0xA089a21902914C3f3325dBE2334E9B466071E5f1',
+              baseTokenDecimals: 6,
+              datatokenDecimals: 18,
+              fixedRate: '1',
+              marketFee: '0',
+              marketFeeCollector: '0x0000000000000000000000000000000000000000',
+          },
+      } as PricingConfigWithoutOwner,
+  }
 }

@@ -1,21 +1,30 @@
 import * as dotenv from 'dotenv'
 import { LogLevel, Nautilus, AssetBuilder, FileTypes, ServiceTypes, ServiceBuilder, UrlFile, ConsumerParameterBuilder } from '@deltadao/nautilus'
-import { CONFIG } from './config'
+import { Network, NETWORK_CONFIG, PRICING_CONFIG } from './config'
 import { Wallet, providers } from 'ethers'
 dotenv.config()
 
 // load config based on selected network
-const config = process.env.NETWORK === 'pontusx' ? CONFIG.PONTUSX : CONFIG.MUMBAI
+if (!process.env.NETWORK) {
+    throw new Error(`Set your networn in the .env file. Supported networks are ${Object.values(Network).join(', ')}.`);
+}
+const selectedEnvNetwork = (process.env.NETWORK).toUpperCase()
+if (!(selectedEnvNetwork in Network)) {
+    throw new Error(`Invalid network selection: ${selectedEnvNetwork}. Supported networks are ${Object.values(Network).join(', ')}.`);
+}
+console.log(`Your selected NETWORK is ${Network[selectedEnvNetwork]}`)
+const networkConfig = NETWORK_CONFIG[selectedEnvNetwork]
+const pricingConfig = PRICING_CONFIG[selectedEnvNetwork]
 
 // Setting up ethers wallet
 const privateKey = process.env.PRIVATE_KEY as string // make sure to setup your PRIVATE_KEY in .env file
-const provider = new providers.JsonRpcProvider(config.NETWORK_CONFIG.nodeUri)
+const provider = new providers.JsonRpcProvider(networkConfig.nodeUri)
 const wallet = new Wallet(privateKey, provider)
 
 
 async function main() {
     Nautilus.setLogLevel(LogLevel.Verbose) // optional to show more nautilus internal logs
-    const nautilus = await Nautilus.create(wallet, config.NETWORK_CONFIG)
+    const nautilus = await Nautilus.create(wallet, networkConfig)
 
     /* ℹ️ comment in/out whatever you want to test
     (adding or removing "//" at the beginning of the line) ℹ️ */
@@ -53,10 +62,10 @@ async function publishAccessDataset(nautilus: Nautilus) {
     }
 
     const service = serviceBuilder
-        .setServiceEndpoint(config.NETWORK_CONFIG.providerUri)
+        .setServiceEndpoint(networkConfig.providerUri)
         .setTimeout(86400)
         .addFile(urlFile)
-        .setPricing(config.PRICING_CONFIG.FREE)
+        .setPricing(pricingConfig.FREE)
         .setDatatokenNameAndSymbol('My Datatoken Name', 'SYMBOL') // important for following access token transactions in the explorer
         .build()
 
@@ -102,10 +111,10 @@ async function publishComputeDataset(nautilus: Nautilus) {
     }
 
     const service = serviceBuilder
-        .setServiceEndpoint(config.NETWORK_CONFIG.providerUri)
+        .setServiceEndpoint(networkConfig.providerUri)
         .setTimeout(86400)
         .addFile(urlFile)
-        .setPricing(config.PRICING_CONFIG.FREE)
+        .setPricing(pricingConfig.FREE)
         .setDatatokenNameAndSymbol('My Datatoken Name', 'SYMBOL') // important for following access token transactions in the explorer
         .addConsumerParameter(cunsumerParameter) // optional
         .build()
@@ -138,10 +147,10 @@ async function publishComputeAlgorithm(nautilus: Nautilus) {
     }
 
     const service = serviceBuilder
-        .setServiceEndpoint(config.NETWORK_CONFIG.providerUri)
+        .setServiceEndpoint(networkConfig.providerUri)
         .setTimeout(86400)
         .addFile(urlFile)
-        .setPricing(config.PRICING_CONFIG.FIXED_OCEAN)
+        .setPricing(pricingConfig.FIXED_OCEAN)
         .setDatatokenNameAndSymbol('My Datatoken Name', 'SYMBOL')
         .build()
 
@@ -208,7 +217,7 @@ async function access(nautilus: Nautilus) {
 async function retrieveComputeResult(nautilus: Nautilus, jobId?: string) {
     const computeResult = await nautilus.getComputeResult({
         jobId: jobId || '38d3ab56002844ac92fd72803129654b',
-        providerUri: config.NETWORK_CONFIG.providerUri
+        providerUri: networkConfig.providerUri
     })
     console.log('Compute Result URL: ', computeResult)
 }
@@ -216,7 +225,7 @@ async function retrieveComputeResult(nautilus: Nautilus, jobId?: string) {
 async function getComputeStatus(nautilus: Nautilus, jobId?: string) {
     const computeJobStatus = await nautilus.getComputeStatus({
         jobId: jobId || 'bfd2eb0418c44a229d8346d66e3384bd',
-        providerUri: config.NETWORK_CONFIG.providerUri
+        providerUri: networkConfig.providerUri
     })
     console.log('Compute Job Status: ', computeJobStatus)
 }
