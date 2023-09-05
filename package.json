@@ -10,11 +10,11 @@
   "author": "deltaDAO AG",
   "license": "Apache-2.0",
   "dependencies": {
-    "@deltadao/nautilus": "0.3.0-alpha10",
-    "dotenv": "^16.0.3",
+    "@deltadao/nautilus": "0.3.0-beta.1",
+    "dotenv": "^16.3.1",
     "ethers": "^5.7.2"
   },
   "devDependencies": {
-    "typescript": "^5.0.4"
+    "typescript": "^5.2.2"
   }
 }
