@@ -2,7 +2,7 @@ import { PricingConfigWithoutOwner } from '@deltadao/nautilus'
 
 export enum Network {
   PONTUSX = 'PONTUSX',
-  MUMBAI = 'MUMBAI',
+  MUMBAI = 'MUMBAI'
 }
 
 export const NETWORK_CONFIGS: {
@@ -20,7 +20,7 @@ export const NETWORK_CONFIGS: {
     fixedRateExchangeAddress: '0xAD8E7d2aFf5F5ae7c2645a52110851914eE6664b',
     dispenserAddress: '0x94cb8FC8719Ed09bE3D9c696d2037EA95ef68d3e',
     nftFactoryAddress: '0x6cb85858183B82154921f68b434299EC4281da53',
-    providerAddress: '0x68C24FA5b2319C81b34f248d1f928601D2E5246B',
+    providerAddress: '0x68C24FA5b2319C81b34f248d1f928601D2E5246B'
   },
   [Network.MUMBAI]: {
     chainId: 80001,
@@ -48,15 +48,15 @@ export const NETWORK_CONFIGS: {
     veDelegationProxy: '0x51B1b14b8bfb43a2fB0b49843787Ca440200F6b7',
     DFRewards: '0x4259c164eedA7483dda2b4b622D761A88674D31f',
     DFStrategyV1: '0x1be9C72500B41c286C797D4FE727747Ae9C4E195',
-    veFeeEstimate: '0xCFeF55c6ae4d250586e293f29832967a04A9087d',
-  },
+    veFeeEstimate: '0xCFeF55c6ae4d250586e293f29832967a04A9087d'
+  }
 }
 
 // These are example pricing configurations with prefilled contract addresses of the payment tokens
 export const PRICING_CONFIGS: PricingConfig = {
   [Network.PONTUSX]: {
     FREE: {
-      type: 'free',
+      type: 'free'
     },
     FIXED_OCEAN: {
       type: 'fixed',
@@ -67,8 +67,8 @@ export const PRICING_CONFIGS: PricingConfig = {
         datatokenDecimals: 18,
         fixedRate: '1',
         marketFee: '0',
-        marketFeeCollector: '0x0000000000000000000000000000000000000000',
-      },
+        marketFeeCollector: '0x0000000000000000000000000000000000000000'
+      }
     },
     FIXED_EUROE: {
       type: 'fixed',
@@ -79,13 +79,13 @@ export const PRICING_CONFIGS: PricingConfig = {
         datatokenDecimals: 18,
         fixedRate: '1',
         marketFee: '0',
-        marketFeeCollector: '0x0000000000000000000000000000000000000000',
-      },
-    },
+        marketFeeCollector: '0x0000000000000000000000000000000000000000'
+      }
+    }
   },
   [Network.MUMBAI]: {
     FREE: {
-      type: 'free',
+      type: 'free'
     },
     FIXED_OCEAN: {
       type: 'fixed',
@@ -96,8 +96,8 @@ export const PRICING_CONFIGS: PricingConfig = {
         datatokenDecimals: 18,
         fixedRate: '1',
         marketFee: '0',
-        marketFeeCollector: '0x0000000000000000000000000000000000000000',
-      },
+        marketFeeCollector: '0x0000000000000000000000000000000000000000'
+      }
     },
     FIXED_EUROE: {
       type: 'fixed',
@@ -108,10 +108,10 @@ export const PRICING_CONFIGS: PricingConfig = {
         datatokenDecimals: 18,
         fixedRate: '1',
         marketFee: '0',
-        marketFeeCollector: '0x0000000000000000000000000000000000000000',
-      },
-    },
-  },
+        marketFeeCollector: '0x0000000000000000000000000000000000000000'
+      }
+    }
+  }
 }
 
 export type NetworkConfig = {

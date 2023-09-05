@@ -7,7 +7,7 @@ import { compute, getComputeStatus, retrieveComputeResult } from './compute'
 import {
   publishAccessDataset,
   publishComputeAlgorithm,
-  publishComputeDataset,
+  publishComputeDataset
 } from './publish'
 dotenv.config()
 

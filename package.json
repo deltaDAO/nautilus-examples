@@ -5,7 +5,8 @@
   "main": "index.ts",
   "scripts": {
     "build": "npx tsc",
-    "start": "npx tsc && node dist/index.js"
+    "start": "npx tsc && node dist/index.js",
+    "prettier": "prettier ./*.ts --write"
   },
   "author": "deltaDAO AG",
   "license": "Apache-2.0",
@@ -15,6 +16,7 @@
     "ethers": "^5.7.2"
   },
   "devDependencies": {
+    "prettier": "^3.0.3",
     "typescript": "^5.2.2"
   }
 }
