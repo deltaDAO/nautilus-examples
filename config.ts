@@ -5,7 +5,9 @@ export enum Network {
   MUMBAI = 'MUMBAI',
 }
 
-export const NETWORK_CONFIGS = {
+export const NETWORK_CONFIGS: {
+  [key in Network]: NetworkConfig
+} = {
   [Network.PONTUSX]: {
     chainId: 100,
     network: 'genx',
@@ -19,7 +21,7 @@ export const NETWORK_CONFIGS = {
     dispenserAddress: '0x94cb8FC8719Ed09bE3D9c696d2037EA95ef68d3e',
     nftFactoryAddress: '0x6cb85858183B82154921f68b434299EC4281da53',
     providerAddress: '0x68C24FA5b2319C81b34f248d1f928601D2E5246B',
-  } as NetworkConfig,
+  },
   [Network.MUMBAI]: {
     chainId: 80001,
     network: 'mumbai',
@@ -47,7 +49,7 @@ export const NETWORK_CONFIGS = {
     DFRewards: '0x4259c164eedA7483dda2b4b622D761A88674D31f',
     DFStrategyV1: '0x1be9C72500B41c286C797D4FE727747Ae9C4E195',
     veFeeEstimate: '0xCFeF55c6ae4d250586e293f29832967a04A9087d',
-  } as NetworkConfig,
+  },
 }
 
 // These are example pricing configurations with prefilled contract addresses of the payment tokens
@@ -113,37 +115,37 @@ export const PRICING_CONFIGS: PricingConfig = {
 }
 
 export type NetworkConfig = {
-  chainId: number;
-  network: string;
-  metadataCacheUri: string;
-  nodeUri: string;
-  providerUri: string;
-  subgraphUri: string;
-  oceanTokenAddress: string;
-  oceanTokenSymbol: string;
-  fixedRateExchangeAddress: string;
-  dispenserAddress: string;
-  nftFactoryAddress: string;
-  providerAddress: string;
-  explorerUri?: string;
-  startBlock?: number;
-  transactionBlockTimeout?: number;
-  transactionConfirmationBlocks?: number;
-  transactionPollingTimeout?: number;
-  gasFeeMultiplier?: number;
-  opfCommunityFeeCollector?: string;
-  veAllocate?: string;
-  veOCEAN?: string;
-  veDelegation?: string;
-  veFeeDistributor?: string;
-  veDelegationProxy?: string;
-  DFRewards?: string;
-  DFStrategyV1?: string;
-  veFeeEstimate?: string;
+  chainId: number
+  network: string
+  metadataCacheUri: string
+  nodeUri: string
+  providerUri: string
+  subgraphUri: string
+  oceanTokenAddress: string
+  oceanTokenSymbol: string
+  fixedRateExchangeAddress: string
+  dispenserAddress: string
+  nftFactoryAddress: string
+  providerAddress?: string
+  explorerUri?: string
+  startBlock?: number
+  transactionBlockTimeout?: number
+  transactionConfirmationBlocks?: number
+  transactionPollingTimeout?: number
+  gasFeeMultiplier?: number
+  opfCommunityFeeCollector?: string
+  veAllocate?: string
+  veOCEAN?: string
+  veDelegation?: string
+  veFeeDistributor?: string
+  veDelegationProxy?: string
+  DFRewards?: string
+  DFStrategyV1?: string
+  veFeeEstimate?: string
 }
 
 export type PricingConfig = {
   [key in Network]: {
-    [key: string]: PricingConfigWithoutOwner;
-  };
-};
+    [key: string]: PricingConfigWithoutOwner
+  }
+}
