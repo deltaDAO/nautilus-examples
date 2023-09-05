@@ -59,7 +59,7 @@ async function main() {
   // await retrieveComputeResult(
   //   nautilus,
   //   networkConfig.providerUri,
-  //   '123676176859426da19e3f6766bba16a'
+  //   computeJob.jobId
   // )
 }
 
