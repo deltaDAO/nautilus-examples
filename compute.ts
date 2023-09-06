@@ -1,15 +1,15 @@
 import { Nautilus } from '@deltadao/nautilus'
 
-export async function compute(nautilus: Nautilus) {
+export async function compute(nautilus: Nautilus, datasetDid?: string, algoDid?: string) {
   const dataset = {
-    did: 'did:op:9070303fed89dacadc05a8b2c57c178c6afed44c3bdf188a1d76271ff9b01b46' // any 'compute' dataset
+    did: datasetDid || 'did:op:64d137d8fd1e71982efb432fa39556a6a3eb3248a2eb34dfddbef48e65c9bca2' // any 'compute' dataset
     // userdata: { // optional
     //     myNumberParam: 8
     // }
   }
 
   const algorithm = {
-    did: 'did:op:dfc9318c04cfe3378f0ee33f9778e8cce76a8bf4c9226058d59cbf8dbb6c7be5' // any 'compute' algorithm allowed to be run on the given dataset (needs to be whitelisted on the dataset)
+    did: algoDid || 'did:op:3a13028983ce3c0954fd4d9f41c8f1f08649907153a76d79de6dd0a3a4096110' // any 'compute' algorithm allowed to be run on the given dataset (needs to be whitelisted on the dataset)
   }
 
   const computeConfig = {

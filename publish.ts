@@ -23,7 +23,7 @@ export async function publishAccessDataset(
 
   const urlFile: UrlFile = {
     type: 'url', // there are multiple supported data source types, see https://docs.oceanprotocol.com/developers/storage
-    url: 'https://www.delta-dao.com/.well-known/did.json', // link to your file or api
+    url: 'https://raw.githubusercontent.com/deltaDAO/nautilus-examples/main/example_publish_assets/example-dataset.json', // link to your file or api
     method: 'GET' // HTTP request method
     // headers: {
     //     Authorization: 'Basic XXX' // optional headers field e.g. for basic access control
@@ -77,7 +77,7 @@ export async function publishComputeDataset(
 
   const urlFile: UrlFile = {
     type: 'url',
-    url: 'https://www.delta-dao.com/.well-known/did.json', // link to your file or api
+    url: 'https://raw.githubusercontent.com/deltaDAO/nautilus-examples/main/example_publish_assets/example-dataset.json', // link to your file or api
     method: 'GET'
     // headers: {
     //     Authorization: 'Basic XXX' // optional headers field e.g. for basic access control
@@ -96,7 +96,7 @@ export async function publishComputeDataset(
   const assetBuilder = new AssetBuilder()
   const asset = assetBuilder
     .setType('dataset')
-    .setName('Compute Dataset Name ABC66')
+    .setName('Compute Dataset Name')
     .setDescription('Compute Dataset Description (supports Markdown)')
     .setAuthor('Company Name')
     .setLicense('MIT')
@@ -121,7 +121,7 @@ export async function publishComputeAlgorithm(
 
   const urlFile: UrlFile = {
     type: 'url',
-    url: 'https://raw.githubusercontent.com/deltaDAO/files/main/demo.js', // link to your algorithm logic, will be run using the defined conatainer
+    url: 'https://raw.githubusercontent.com/deltaDAO/nautilus-examples/main/example_publish_assets/count-lines-algorithm.js', // link to your algorithm logic, will be run using the defined conatainer
     method: 'GET'
   }
 
@@ -150,7 +150,7 @@ export async function publishComputeAlgorithm(
 
   const asset = assetBuilder
     .setType('algorithm')
-    .setName('Compute Algorithm Name ABC66')
+    .setName('Compute Algorithm Name')
     .setDescription(`Your description`) // supports markdown
     .setAuthor('Your Company Name')
     .setLicense('MIT')
