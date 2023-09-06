@@ -41,8 +41,8 @@ export async function publishAccessDataset(
   const assetBuilder = new AssetBuilder()
   const asset = assetBuilder
     .setType('dataset')
-    .setName('Access Dataset Name')
-    .setDescription('Access Dataset Description')
+    .setName('Nautilus-Example: Access Dataset Name')
+    .setDescription('# Nautilus-Example Description \n\nThis asset has been published using the [nautilus-examples](https://github.com/deltaDAO/nautilus-examples) repository.')
     .setAuthor('Company Name')
     .setLicense('MIT')
     .addService(service)
@@ -96,8 +96,8 @@ export async function publishComputeDataset(
   const assetBuilder = new AssetBuilder()
   const asset = assetBuilder
     .setType('dataset')
-    .setName('Compute Dataset Name')
-    .setDescription('Compute Dataset Description (supports Markdown)')
+    .setName('Nautilus-Example: Compute Dataset Name')
+    .setDescription('# Nautilus-Example Description \n\nThis asset has been published using the [nautilus-examples](https://github.com/deltaDAO/nautilus-examples) repository.')
     .setAuthor('Company Name')
     .setLicense('MIT')
     .addService(service)
@@ -150,8 +150,8 @@ export async function publishComputeAlgorithm(
 
   const asset = assetBuilder
     .setType('algorithm')
-    .setName('Compute Algorithm Name')
-    .setDescription(`Your description`) // supports markdown
+    .setName('Nautilus-Example: Compute Algorithm Name')
+    .setDescription(`# Nautilus-Example Description \n\nThis asset has been published using the [nautilus-examples](https://github.com/deltaDAO/nautilus-examples) repository.`) // supports markdown
     .setAuthor('Your Company Name')
     .setLicense('MIT')
     .setAlgorithm(algoMetadata)
