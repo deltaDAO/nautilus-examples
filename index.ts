@@ -49,7 +49,7 @@ async function main() {
   await publishComputeAlgorithm(nautilus, networkConfig, pricingConfig, wallet)
 
   // DOWNLOAD DATA
-  //await access(nautilus)
+  // await access(nautilus)
 
   // COMPUTE FLOW
   // const computeJob = await compute(nautilus)
