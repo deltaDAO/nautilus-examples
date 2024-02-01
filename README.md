@@ -18,7 +18,7 @@ A TypeScript project showing [Nautilus](https://github.com/deltaDAO/nautilus) us
 
    | Variable    | Value                                                           |
    | ----------- | --------------------------------------------------------------- |
-   | NETWORK     | `mumbai` or `pontusx`                                           |
+   | NETWORK     | `mumbai` or `pontusx` or `oasis_pontusx`                                         |
    | PRIVATE_KEY | private key of your account (you can export this from MetaMask) |
 
    > The account needs to be funded with tokens. Depending on the example and network either `matic` (`mumbai`) or `gx` (`pontusx`) for the network fees and `EUROe` or `OCEAN` for paid services.
