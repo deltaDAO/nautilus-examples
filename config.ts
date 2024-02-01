@@ -1,6 +1,7 @@
 import { PricingConfigWithoutOwner } from '@deltadao/nautilus'
 
 export enum Network {
+  OASIS_PONTUSX = 'OASIS_PONTUSX',
   PONTUSX = 'PONTUSX',
   MUMBAI = 'MUMBAI'
 }
@@ -49,6 +50,23 @@ export const NETWORK_CONFIGS: {
     DFRewards: '0x4259c164eedA7483dda2b4b622D761A88674D31f',
     DFStrategyV1: '0x1be9C72500B41c286C797D4FE727747Ae9C4E195',
     veFeeEstimate: '0xCFeF55c6ae4d250586e293f29832967a04A9087d'
+  },
+  [Network.OASIS_PONTUSX]: {
+    chainId: 32456,
+    network: 'pontusx',
+    metadataCacheUri: 'https://aquarius.dev.pontus-x.eu',
+    nodeUri: 'http://141.95.97.128:8545',
+    providerUri: 'https://provider.dev.pontus-x.eu',
+    subgraphUri: 'https://subgraph.dev.pontus-x.eu',
+    oceanTokenAddress: '0xdF171F74a8d3f4e2A789A566Dce9Fa4945196112',
+    opfCommunityFeeCollector: '0x1f84fB438292269219f9396D57431eA9257C23d4',
+    startBlock: 57428,
+    oceanTokenSymbol: 'OCEAN',
+    fixedRateExchangeAddress: '0x8372715D834d286c9aECE1AcD51Da5755B32D505',
+    dispenserAddress: '0x5461b629E01f72E0A468931A36e039Eea394f9eA',
+    nftFactoryAddress: '0xFdC4a5DEaCDfc6D82F66e894539461a269900E13',
+    DFRewards: '0x6BB265D6c08b7E7432dF9B3D3499beEAA9856232',
+    DFStrategyV1: '0x98FBBB6523441b960E4D1d9A98601332092F4aB6'
   }
 }
 
@@ -81,7 +99,7 @@ export const PRICING_CONFIGS: PricingConfig = {
         marketFee: '0',
         marketFeeCollector: '0x0000000000000000000000000000000000000000'
       }
-    }
+    },
   },
   [Network.MUMBAI]: {
     FREE: {
@@ -111,7 +129,24 @@ export const PRICING_CONFIGS: PricingConfig = {
         marketFeeCollector: '0x0000000000000000000000000000000000000000'
       }
     }
-  }
+  },
+  [Network.OASIS_PONTUSX]: {
+    FREE: {
+      type: 'free'
+    },
+    FIXED_OCEAN: {
+      type: 'fixed',
+      freCreationParams: {
+        fixedRateAddress: '0x8372715D834d286c9aECE1AcD51Da5755B32D505',
+        baseTokenAddress: '0xdF171F74a8d3f4e2A789A566Dce9Fa4945196112',
+        baseTokenDecimals: 18,
+        datatokenDecimals: 18,
+        fixedRate: '1',
+        marketFee: '0',
+        marketFeeCollector: '0x0000000000000000000000000000000000000000'
+      }
+    }
+  },
 }
 
 export type NetworkConfig = {
