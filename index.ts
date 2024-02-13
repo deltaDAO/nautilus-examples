@@ -50,7 +50,7 @@ async function main() {
   // await publishComputeAlgorithm(nautilus, networkConfig, pricingConfig, wallet)
 
   // EDIT SERVICE OFFERING
-  await editServiceOffering(nautilus, process.env.EDIT_SERVICE_OFFERING_DID)
+  await editServiceOffering(nautilus)
 
   // DOWNLOAD DATA
   // await access(nautilus)
