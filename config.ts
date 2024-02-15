@@ -25,17 +25,17 @@ export const NETWORK_CONFIGS: {
   },
   // TODO: update config
   [Network.PONTUSX]: {
-    chainId: 100,
-    network: 'genx',
-    metadataCacheUri: 'https://aquarius510.v4.delta-dao.com',
-    nodeUri: 'https://rpc.genx.minimal-gaia-x.eu',
-    providerUri: 'https://provider.v4.genx.delta-dao.com',
-    subgraphUri: 'https://subgraph.v4.genx.minimal-gaia-x.eu',
-    oceanTokenAddress: '0x0995527d3473b3a98c471f1ed8787acd77fbf009',
+    chainId: 32456,
+    network: 'pontusx',
+    metadataCacheUri: 'https://aquarius.dev.pontus-x.eu',
+    nodeUri: 'https://rpc.dev.pontus-x.eu',
+    providerUri: 'https://provider.dev.pontus-x.eu',
+    subgraphUri: 'https://subgraph.dev.pontus-x.eu',
+    oceanTokenAddress: '0xdF171F74a8d3f4e2A789A566Dce9Fa4945196112',
     oceanTokenSymbol: 'OCEAN',
-    fixedRateExchangeAddress: '0xAD8E7d2aFf5F5ae7c2645a52110851914eE6664b',
-    dispenserAddress: '0x94cb8FC8719Ed09bE3D9c696d2037EA95ef68d3e',
-    nftFactoryAddress: '0x6cb85858183B82154921f68b434299EC4281da53',
+    fixedRateExchangeAddress: '0x8372715D834d286c9aECE1AcD51Da5755B32D505',
+    dispenserAddress: '0x5461b629E01f72E0A468931A36e039Eea394f9eA',
+    nftFactoryAddress: '0xFdC4a5DEaCDfc6D82F66e894539461a269900E13',
     providerAddress: '0x68C24FA5b2319C81b34f248d1f928601D2E5246B'
   },
   [Network.MUMBAI]: {
