@@ -1,17 +1,27 @@
-import { Nautilus, AssetBuilder  } from '@deltadao/nautilus' 
+import { Nautilus, AssetBuilder, ConsumerParameterBuilder  } from '@deltadao/nautilus' 
 
 export async function editServiceOffering(nautilus: Nautilus) {
     const aquariusAsset = await nautilus.getAquariusAsset(
-        `did:op:0ea80a58e85cecbc5680f686db5d4adce9fe8852ab52332928ee110862d563e8` // Change DID if needed
+        `did:op:c7ce4d1ceccb2131d6fbe80592d4d76301d108ee3f003161434f051b41317440` // Change DID if needed
     )
     
     const assetBuilder = new AssetBuilder(aquariusAsset)
 
+    // Example: adding consumerParameters via edit
+    // const consumerParameterBuidler = new ConsumerParameterBuilder()
+    // const parameter = consumerParameterBuidler.setType('text')
+    //     .setName('testParam')
+    //     .setDescription('a test parameter')
+    //     .setDefault('value')
+    //     .setLabel('Test Parameter')
+    //     .setRequired(false)
+    //     .build()
+
     const asset = assetBuilder
         .setAlgorithm({
-            ...aquariusAsset.metadata.algorithm,
-            // Updated container information
-            container: {
+            ...aquariusAsset.metadata.algorithm, // Start with existing algorithm metadata
+            // consumerParameters: [...aquariusAsset.metadata.algorithm.consumerParameters, parameter], // Example: adding new consumerParameters via edit
+            container: { // Update container information
                 entrypoint: 'node $ALGO',
                 image: 'node',
                 tag: 'lts', 
