@@ -9,11 +9,13 @@ export async function editServiceOffering(nautilus: Nautilus) {
 
     const asset = assetBuilder
         .setAlgorithm({
+            ...aquariusAsset.metadata.algorithm,
+            // Updated container information
             container: {
                 entrypoint: 'node $ALGO',
                 image: 'node',
-                tag: 'lts', // Updated image
-                checksum: 'sha256:a6faa1aa0ae1981b70c075dd6ea0a1725a1d05a4cab85536460ae4e4710e8331' // Updated checksum
+                tag: 'lts', 
+                checksum: 'sha256:a6faa1aa0ae1981b70c075dd6ea0a1725a1d05a4cab85536460ae4e4710e8331'
             }
         })
         .build()
