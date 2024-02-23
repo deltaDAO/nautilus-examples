@@ -2,7 +2,7 @@ import { Nautilus, AssetBuilder, ConsumerParameterBuilder, CredentialListTypes, 
 
 export async function editServiceOffering(nautilus: Nautilus) {
     const aquariusAsset = await nautilus.getAquariusAsset(
-        `did:op:c7ce4d1ceccb2131d6fbe80592d4d76301d108ee3f003161434f051b41317440` // Change DID if needed
+        `did:op:0ddfc4a836acf1c3722ec60489629f3dfd9e0f82c30677a31395afb48cef95e0` // Change DID if needed
     )
     
     const assetBuilder = new AssetBuilder(aquariusAsset)
@@ -32,10 +32,24 @@ export async function editServiceOffering(nautilus: Nautilus) {
 
     // Updating trusted algorithms on a service
     const serviceBuilder = new ServiceBuilder({ aquariusAsset, serviceId: aquariusAsset.services[0].id })
-    const service = serviceBuilder.addTrustedAlgorithmPublisher('0x9c26685b6E8e2997d9aAf3f1a642f1b1b3dB9580')
+    const service = serviceBuilder
+        //.addTrustedAlgorithmPublisher('0x28080F654eED6CC00e8b16F4841E92CD0c2C0778')
         .build()
+
     const asset = assetBuilder.addService(service)
         .build()
+    
+    // Temporary Workaround
+    // TODO: remove workaround once fixed
+    //@ts-ignore
+    asset.ddo.ddo.services[0].compute = {
+        allowNetworkAccess: false,
+        allowRawAlgorithm: false,
+        publisherTrustedAlgorithmPublishers: [  
+            '0x28080F654eED6CC00e8b16F4841E92CD0c2C0778' // this needs to be set correctly
+        ],
+        publisherTrustedAlgorithms: []
+    }
 
     const result = await nautilus.edit(asset)
 
