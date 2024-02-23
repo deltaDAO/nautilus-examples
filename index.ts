@@ -53,7 +53,12 @@ async function main() {
   await editServiceOffering(nautilus)
 
   // DOWNLOAD DATA
-  // await access(nautilus)
+  // const userdata = {
+  //   key: 'value',
+  //   key1: 'value',
+  //   key2: 'value'
+  // }
+  // await access(nautilus, 'did:op:...', userdata)
 
   // COMPUTE FLOW
   // const computeJob = await compute(nautilus)
