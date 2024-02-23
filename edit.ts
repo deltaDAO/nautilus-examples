@@ -1,4 +1,4 @@
-import { Nautilus, AssetBuilder, ConsumerParameterBuilder  } from '@deltadao/nautilus' 
+import { Nautilus, AssetBuilder, ConsumerParameterBuilder, CredentialListTypes, ServiceBuilder  } from '@deltadao/nautilus' 
 
 export async function editServiceOffering(nautilus: Nautilus) {
     const aquariusAsset = await nautilus.getAquariusAsset(
@@ -17,20 +17,27 @@ export async function editServiceOffering(nautilus: Nautilus) {
     //     .setRequired(false)
     //     .build()
 
-    const asset = assetBuilder
-        .setAlgorithm({
-            ...aquariusAsset.metadata.algorithm, // Start with existing algorithm metadata
-            // consumerParameters: [...aquariusAsset.metadata.algorithm.consumerParameters, parameter], // Example: adding new consumerParameters via edit
-            container: { // Update container information
-                entrypoint: 'node $ALGO',
-                image: 'node',
-                tag: 'lts', 
-                checksum: 'sha256:a6faa1aa0ae1981b70c075dd6ea0a1725a1d05a4cab85536460ae4e4710e8331'
-            }
-        })
+    // const asset = assetBuilder
+    //     .setAlgorithm({
+    //         ...aquariusAsset.metadata.algorithm, // Start with existing algorithm metadata
+    //         // consumerParameters: [...aquariusAsset.metadata.algorithm.consumerParameters, parameter], // Example: adding new consumerParameters via edit
+    //         container: { // Update container information
+    //             entrypoint: 'node $ALGO',
+    //             image: 'node',
+    //             tag: 'lts',
+    //             checksum: 'sha256:a6faa1aa0ae1981b70c075dd6ea0a1725a1d05a4cab85536460ae4e4710e8331'
+    //         }
+    //     })
+
+
+    // Updating trusted algorithms on a service
+    const serviceBuilder = new ServiceBuilder({ aquariusAsset, serviceId: aquariusAsset.services[0].id })
+    const service = serviceBuilder.addTrustedAlgorithmPublisher('0x9c26685b6E8e2997d9aAf3f1a642f1b1b3dB9580')
         .build()
-    
+    const asset = assetBuilder.addService(service)
+        .build()
+
     const result = await nautilus.edit(asset)
 
-    console.log(result)
+    console.log('Edit complete:', result)
 }
