@@ -1,4 +1,4 @@
-import { Nautilus, AssetBuilder, ConsumerParameterBuilder, CredentialListTypes, ServiceBuilder  } from '@deltadao/nautilus' 
+import { Nautilus, AssetBuilder, ConsumerParameterBuilder, CredentialListTypes, ServiceBuilder, LifecycleStates  } from '@deltadao/nautilus' 
 
 export async function editServiceOffering(nautilus: Nautilus) {
     const aquariusAsset = await nautilus.getAquariusAsset(
@@ -33,7 +33,7 @@ export async function editServiceOffering(nautilus: Nautilus) {
     // Updating trusted algorithms on a service
     const serviceBuilder = new ServiceBuilder({ aquariusAsset, serviceId: aquariusAsset.services[0].id })
     const service = serviceBuilder
-        //.addTrustedAlgorithmPublisher('0x28080F654eED6CC00e8b16F4841E92CD0c2C0778')
+//.addTrustedAlgorithmPublisher('0x28080F654eED6CC00e8b16F4841E92CD0c2C0778')
         .build()
 
     const asset = assetBuilder.addService(service)
@@ -54,4 +54,14 @@ export async function editServiceOffering(nautilus: Nautilus) {
     const result = await nautilus.edit(asset)
 
     console.log('Edit complete:', result)
+}
+
+export async function editLifecycle(nautilus: Nautilus) {
+    const aquariusAsset = await nautilus.getAquariusAsset('did:op:c9ee9ef8c3879e75d5b4fc95d2ac0bc0145a4a52fe385df5c223b8484a3816f6')
+
+      const tx = await nautilus.setAssetLifecycleState(
+        aquariusAsset,
+        LifecycleStates.REVOKED_BY_PUBLISHER
+      )
+      console.log('Edit lifecycle complete:', tx)
 }

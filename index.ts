@@ -9,7 +9,7 @@ import {
   publishComputeAlgorithm,
   publishComputeDataset
 } from './publish'
-import { editServiceOffering } from './edit'
+import { editLifecycle, editServiceOffering } from './edit'
 dotenv.config()
 
 // load config based on selected network
@@ -51,6 +51,7 @@ async function main() {
 
   // EDIT SERVICE OFFERING
   await editServiceOffering(nautilus)
+  // await editLifecycle(nautilus)
 
   // DOWNLOAD DATA
   // const userdata = {
