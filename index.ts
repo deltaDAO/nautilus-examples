@@ -9,6 +9,7 @@ import {
   publishComputeAlgorithm,
   publishComputeDataset
 } from './publish'
+import { editLifecycle, editServiceOffering } from './edit'
 dotenv.config()
 
 // load config based on selected network
@@ -44,12 +45,21 @@ async function main() {
     (adding or removing "//" at the beginning of the line) ℹ️ */
 
   // PUBLISH FUNCTIONS
-  await publishAccessDataset(nautilus, networkConfig, pricingConfig, wallet)
-  await publishComputeDataset(nautilus, networkConfig, pricingConfig, wallet)
-  await publishComputeAlgorithm(nautilus, networkConfig, pricingConfig, wallet)
+  // await publishAccessDataset(nautilus, networkConfig, pricingConfig, wallet)
+  // await publishComputeDataset(nautilus, networkConfig, pricingConfig, wallet)
+  // await publishComputeAlgorithm(nautilus, networkConfig, pricingConfig, wallet)
+
+  // EDIT SERVICE OFFERING
+  await editServiceOffering(nautilus)
+  // await editLifecycle(nautilus)
 
   // DOWNLOAD DATA
-  // await access(nautilus)
+  // const userdata = {
+  //   key: 'value',
+  //   key1: 'value',
+  //   key2: 'value'
+  // }
+  // await access(nautilus, 'did:op:...', userdata)
 
   // COMPUTE FLOW
   // const computeJob = await compute(nautilus)

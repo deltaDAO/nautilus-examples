@@ -19,7 +19,7 @@ export async function publishAccessDataset(
   const owner = await wallet.getAddress()
   console.log(`Your address is ${owner}`)
 
-  const serviceBuilder = new ServiceBuilder(ServiceTypes.ACCESS, FileTypes.URL) // access type dataset with URL data source
+  const serviceBuilder = new ServiceBuilder({ serviceType: ServiceTypes.ACCESS, fileType: FileTypes.URL }) // access type dataset with URL data source
 
   const urlFile: UrlFile = {
     type: 'url', // there are multiple supported data source types, see https://docs.oceanprotocol.com/developers/storage
@@ -73,7 +73,7 @@ export async function publishComputeDataset(
     .setRequired(false)
     .build()
 
-  const serviceBuilder = new ServiceBuilder(ServiceTypes.COMPUTE, FileTypes.URL) // compute type dataset with URL data source
+  const serviceBuilder = new ServiceBuilder({ serviceType: ServiceTypes.COMPUTE, fileType: FileTypes.URL }) // compute type dataset with URL data source
 
   const urlFile: UrlFile = {
     type: 'url',
@@ -117,7 +117,7 @@ export async function publishComputeAlgorithm(
   const owner = await wallet.getAddress()
   console.log(`Your address is ${owner}`)
 
-  const serviceBuilder = new ServiceBuilder(ServiceTypes.COMPUTE, FileTypes.URL)
+  const serviceBuilder = new ServiceBuilder({ serviceType: ServiceTypes.COMPUTE, fileType: FileTypes.URL })
 
   const urlFile: UrlFile = {
     type: 'url',
