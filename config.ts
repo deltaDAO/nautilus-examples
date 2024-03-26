@@ -23,7 +23,6 @@ export const NETWORK_CONFIGS: {
     nftFactoryAddress: '0x6cb85858183B82154921f68b434299EC4281da53',
     providerAddress: '0x68C24FA5b2319C81b34f248d1f928601D2E5246B'
   },
-  // TODO: update config
   [Network.PONTUSX]: {
     chainId: 32456,
     network: 'pontusx',
@@ -99,7 +98,6 @@ export const PRICING_CONFIGS: PricingConfig = {
       }
     }
   },
-  // TODO: update config
   [Network.PONTUSX]: {
     FREE: {
       type: 'free'
@@ -107,8 +105,8 @@ export const PRICING_CONFIGS: PricingConfig = {
     FIXED_OCEAN: {
       type: 'fixed',
       freCreationParams: {
-        fixedRateAddress: '0xAD8E7d2aFf5F5ae7c2645a52110851914eE6664b',
-        baseTokenAddress: '0x0995527d3473b3a98c471f1ed8787acd77fbf009',
+        fixedRateAddress: '0x8372715D834d286c9aECE1AcD51Da5755B32D505',
+        baseTokenAddress: '0xdF171F74a8d3f4e2A789A566Dce9Fa4945196112',
         baseTokenDecimals: 18,
         datatokenDecimals: 18,
         fixedRate: '1',
@@ -119,9 +117,9 @@ export const PRICING_CONFIGS: PricingConfig = {
     FIXED_EUROE: {
       type: 'fixed',
       freCreationParams: {
-        fixedRateAddress: '0xAD8E7d2aFf5F5ae7c2645a52110851914eE6664b',
-        baseTokenAddress: '0xe974c4894996E012399dEDbda0bE7314a73BBff1',
-        baseTokenDecimals: 6, // adapted for EUROe decimals
+        fixedRateAddress: '0x8372715D834d286c9aECE1AcD51Da5755B32D505',
+        baseTokenAddress: '0x8A4826071983655805bF4f29828577Cd6b1aC0cB',
+        baseTokenDecimals: 18, // adapted for EUROe decimals
         datatokenDecimals: 18,
         fixedRate: '1',
         marketFee: '0',
