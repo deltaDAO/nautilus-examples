@@ -2,7 +2,7 @@ import { Nautilus, AssetBuilder, ConsumerParameterBuilder, CredentialListTypes, 
 
 export async function editServiceOffering(nautilus: Nautilus) {
     const aquariusAsset = await nautilus.getAquariusAsset(
-        `did:op:0ddfc4a836acf1c3722ec60489629f3dfd9e0f82c30677a31395afb48cef95e0` // Change DID if needed
+        `did:op:c9ee9ef8c3879e75d5b4fc95d2ac0bc0145a4a52fe385df5c223b8484a3816f6` // Change DID if needed
     )
     
     const assetBuilder = new AssetBuilder(aquariusAsset)
@@ -31,25 +31,20 @@ export async function editServiceOffering(nautilus: Nautilus) {
 
 
     // Updating trusted algorithms on a service
-    const serviceBuilder = new ServiceBuilder({ aquariusAsset, serviceId: aquariusAsset.services[0].id })
-    const service = serviceBuilder
-//.addTrustedAlgorithmPublisher('0x28080F654eED6CC00e8b16F4841E92CD0c2C0778')
-        .build()
+    // const serviceBuilder = new ServiceBuilder({ aquariusAsset, serviceId: aquariusAsset.services[0].id })
+    // const service = serviceBuilder
+    //.addTrustedAlgorithmPublisher('0x28080F654eED6CC00e8b16F4841E92CD0c2C0778')
+    //    .build()
+    // const asset = assetBuilder.addService(service)
+    //     .build()
 
-    const asset = assetBuilder.addService(service)
-        .build()
-    
-    // Temporary Workaround
-    // TODO: remove workaround once fixed
-    //@ts-ignore
-    asset.ddo.ddo.services[0].compute = {
-        allowNetworkAccess: false,
-        allowRawAlgorithm: false,
-        publisherTrustedAlgorithmPublishers: [  
-            '0x28080F654eED6CC00e8b16F4841E92CD0c2C0778' // this needs to be set correctly
-        ],
-        publisherTrustedAlgorithms: []
-    }
+    // Setup an SaaS asset
+    const asset = assetBuilder.addAdditionalInformation({
+        saas: {
+            redirectUrl: 'https://delta-dao.com/nautilus',
+            paymentMode: 'payperuse'
+        }
+    }).build()
 
     const result = await nautilus.edit(asset)
 
