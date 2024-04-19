@@ -18,10 +18,14 @@ A TypeScript project showing [Nautilus](https://github.com/deltaDAO/nautilus) us
 
    | Variable    | Value                                                           |
    | ----------- | --------------------------------------------------------------- |
-   | NETWORK     | `mumbai` or `pontusx`                                           |
+   | NETWORK     | `MUMBAI`, `GENX`  or `PONTUSX`                                           |
    | PRIVATE_KEY | private key of your account (you can export this from MetaMask) |
 
-   > The account needs to be funded with tokens. Depending on the example and network either `matic` (`mumbai`) or `gx` (`pontusx`) for the network fees and `EUROe` or `OCEAN` for paid services.
+   > The account needs to be funded with tokens. Depending on the example and network either `matic` (`mumbai`), `gx` (`genx`) or `euroe` (`pontusx`) for the network fees are needed. In addition `EUROe` or `OCEAN` tokens are required if you want to access paid services.
+
+3. Update the necessary scripts as needed
+
+   Go to the `publish.ts`, `edit.ts`, `access.ts` or `compute.ts` files and change or update them according to your needs. Working code examples are provided in each file.
 
 3. Uncomment and adjust functions you want to test:
 
@@ -30,5 +34,5 @@ A TypeScript project showing [Nautilus](https://github.com/deltaDAO/nautilus) us
 4. Start the script:
 
    ```sh
-   npm run start
+   npm start
    ```
