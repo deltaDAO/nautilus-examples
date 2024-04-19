@@ -34,7 +34,7 @@ const pricingConfig = PRICING_CONFIGS[selectedEnvNetwork]
 
 // Setting up ethers wallet
 const privateKey = process.env.PRIVATE_KEY as string // make sure to setup your PRIVATE_KEY in .env file
-const provider = new providers.JsonRpcProvider('https://rpc.genx.minimal-gaia-x.eu')
+const provider = new providers.JsonRpcProvider(networkConfig.nodeUri)
 const wallet = new Wallet(privateKey, provider)
 
 async function main() {
