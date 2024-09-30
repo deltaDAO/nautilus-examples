@@ -5,11 +5,19 @@ import { Wallet, providers } from 'ethers'
 import { access } from './access'
 import { compute, getComputeStatus, retrieveComputeResult } from './compute'
 import {
+  publishAccessAlgorithm,
   publishAccessDataset,
   publishComputeAlgorithm,
-  publishComputeDataset
+  publishComputeDataset,
+  publishSaaSOffer
 } from './publish'
-import { editAlgoMetadata, editServicePrice, editToSaas, editTrustedAlgorithms, revokeAsset } from './edit'
+import {
+  editAlgoMetadata,
+  editServicePrice,
+  editToSaas,
+  editTrustedAlgorithms,
+  revokeAsset
+} from './edit'
 dotenv.config()
 
 // load config based on selected network
@@ -47,22 +55,26 @@ async function main() {
   // PUBLISH FUNCTIONS
   // await publishAccessDataset(nautilus, networkConfig, pricingConfig, wallet)
   // await publishComputeDataset(nautilus, networkConfig, pricingConfig, wallet)
+
+  // await publishAccessAlgorithm(nautilus, networkConfig, pricingConfig, wallet)
   // await publishComputeAlgorithm(nautilus, networkConfig, pricingConfig, wallet)
+
+  // await publishSaaSOffer(nautilus, networkConfig, pricingConfig, wallet)
 
   // EDIT SERVICE OFFERING
   // await editServicePrice(
-  //   nautilus, 
+  //   nautilus,
   //   'did:op:28f9071186903265bb4426b6f1f644cd3ab32714a04a2644c4947de2be424a77', // change this as needed to your asset DID
   //   '2' // the new price
   // )
   // await editTrustedAlgorithms(
-  //   nautilus, 
+  //   nautilus,
   //   'did:op:a44101519ef6f4cf5011139ee7b0ae775140dbe54d0355e2f6518b55b0942f4b', // change this as needed to your asset DID
   //   ['did:op:28f9071186903265bb4426b6f1f644cd3ab32714a04a2644c4947de2be424a77'], // array of trusted algorithms
   //   [] // alternatively use this as an array of trusted publisher addresses
   // )
   // await editToSaas(
-  //   nautilus, 
+  //   nautilus,
   //   'did:op:e6a84ccb4b9423c451018cc0aeb02805c5cb1cf764d2dfa14bb1c092181aed74', // change this as needed to your asset DID
   //   'https://nautilus.delta-dao.com', // redirect URL for your Saas
   //   'payperuse' // payment mode (either 'payperuse' or 'subscription')
