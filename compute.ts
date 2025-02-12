@@ -1,4 +1,4 @@
-import { Nautilus } from '@deltadao/nautilus'
+import { ComputeConfig, Nautilus } from '@deltadao/nautilus'
 
 export async function compute(nautilus: Nautilus, datasetDid?: string, algoDid?: string) {
   const dataset = {
@@ -17,7 +17,32 @@ export async function compute(nautilus: Nautilus, datasetDid?: string, algoDid?:
     algorithm
   }
 
-  const computeJob = await nautilus.compute(computeConfig)
+  return await nautilusCompute(nautilus, computeConfig)
+}
+
+export async function computeMultipleDatasets(
+  nautilus: Nautilus,
+  datasetDid: string,
+  algorithmDid: string,
+  additionalDatasetDids: string[],
+) {
+  const dataset: ComputeConfig['dataset'] = {
+    did: datasetDid
+  }
+  const algorithm: ComputeConfig['algorithm'] = {
+    did: algorithmDid
+  }
+  const additionalDatasets: ComputeConfig['additionalDatasets'] = additionalDatasetDids.map(did => ({ did }))
+  
+  return await nautilusCompute(nautilus, {
+    dataset,
+    algorithm,
+    additionalDatasets
+  })
+}
+
+async function nautilusCompute(nautilus: Nautilus, config: Omit<ComputeConfig, 'signer' | 'chainConfig'>) {
+  const computeJob = await nautilus.compute(config)
   console.log('COMPUTE JOB: ', computeJob)
   return Array.isArray(computeJob) ? computeJob[0] : computeJob
 }

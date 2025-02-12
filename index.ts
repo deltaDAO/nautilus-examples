@@ -3,7 +3,7 @@ import { LogLevel, Nautilus } from '@deltadao/nautilus'
 import { Network, NETWORK_CONFIGS, PRICING_CONFIGS } from './config'
 import { Wallet, providers } from 'ethers'
 import { access } from './access'
-import { compute, getComputeStatus, retrieveComputeResult } from './compute'
+import { compute, computeMultipleDatasets, getComputeStatus, retrieveComputeResult } from './compute'
 import {
   publishAccessAlgorithm,
   publishAccessDataset,
@@ -100,7 +100,17 @@ async function main() {
 
   // COMPUTE FLOW
   // const computeJob = await compute(nautilus)
-  // await getComputeStatus(nautilus, networkConfig.providerUri, computeJob.jobId)
+  
+  // Example on how to trigger compute jobs leveraging multiple datasets
+  // const computeJob = await computeMultipleDatasets(
+  //   nautilus, 
+  //   "did:op:d15f62f1428e4bd450a23cab00a76bbe930761b7590006294719d5e11ab442c8", 
+  //   "did:op:8483f389c10e9d72f8565a6a57fd0dde6fa720309d9196b908513471f77d4929", 
+  //   ["did:op:2511c8bfe5d86a0c6490631038e40fde25ceb501d0922771888a406ba9e3c9cc", "did:op:72651e43aa398ac464bbb54825f61402ab02a4e954697233f110c5a651e0fe72"]
+  // )
+  
+  // GET COMPUTE STATUS
+  //await getComputeStatus(nautilus, networkConfig.providerUri, computeJob.jobId)
 
   // RETRIEVE RESULTS
   // await retrieveComputeResult(
