@@ -47,6 +47,8 @@ export async function publishAccessDataset(
   const asset = assetBuilder
     .setType('dataset')
     .setName('Nautilus-Example: Access Dataset Name')
+    .setNftTokenName('Custom Dataservice NFT')
+    .setNftTokenSymbol('DNFT')
     .setDescription('# Nautilus-Example Description \n\nThis asset has been published using the [nautilus-examples](https://github.com/deltaDAO/nautilus-examples) repository.')
     .setAuthor('Company Name')
     .setLicense('MIT')
