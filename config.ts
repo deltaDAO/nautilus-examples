@@ -3,7 +3,8 @@ import { PricingConfigWithoutOwner } from '@deltadao/nautilus'
 export enum Network {
   GENX = 'GENX',
   PONTUSXDEV = 'PONTUSXDEV',
-  PONTUSXTEST = 'PONTUSXTEST'
+  PONTUSXTEST = 'PONTUSXTEST',
+  OASISSAPPHIRE = 'OASISSAPPHIRE'
 }
 
 export const NETWORK_CONFIGS: {
@@ -49,7 +50,21 @@ export const NETWORK_CONFIGS: {
     dispenserAddress: '0xaB5B68F88Bc881CAA427007559E9bbF8818026dE',
     nftFactoryAddress: '0x2C4d542ff791890D9290Eec89C9348A4891A6Fd2',
     providerAddress: '0x9546d39CE3E48BC942f0be4AA9652cBe0Aff3592'
-  }
+  },
+  [Network.OASISSAPPHIRE]: {
+    chainId: 23294,
+    network: 'oasis_sapphire',
+    metadataCacheUri: 'https://aquarius.main.pontus-x.eu',
+    nodeUri: 'https://mainnet-archive.sapphire.oasis.io/', // 'https://rpc.main.pontus-x.eu/0953a56072a9a7ca46f57498453d2b3d',
+    providerUri: 'https://provider.main.pontus-x.eu',
+    subgraphUri: 'https://subgraph.main.pontus-x.eu',
+    oceanTokenAddress: '0x39d22B78A7651A76Ffbde2aaAB5FD92666Aca520',
+    oceanTokenSymbol: 'OCEAN',
+    fixedRateExchangeAddress: '0xf26c6C93f9f1d725e149d95f8E7B2334a406aD10',
+    dispenserAddress: '0x2112Eb973af1DBf83a4f11eda82f7a7527D7Fde5',
+    nftFactoryAddress: '0x80E63f73cAc60c1662f27D2DFd2EA834acddBaa8',
+    providerAddress: '0x566c1Bd445392Fd3bCd7D7D8D63dd0d8f3B14571'
+  },
 }
 
 // These are example pricing configurations with prefilled contract addresses of the payment tokens
@@ -134,6 +149,35 @@ export const PRICING_CONFIGS: PricingConfig = {
         fixedRateAddress: '0xcE0F39abB6DA2aE4d072DA78FA0A711cBB62764E',
         baseTokenAddress: '0xdd0a0278f6BAF167999ccd8Aa6C11A9e2fA37F0a',
         baseTokenDecimals: 6, // adapted for EUROe decimals
+        datatokenDecimals: 18,
+        fixedRate: '1', // this is the price
+        marketFee: '0',
+        marketFeeCollector: '0x0000000000000000000000000000000000000000'
+      }
+    },
+    FIXED_LOGGING: {
+      type: 'fixed',
+      freCreationParams: {
+        fixedRateAddress: '0xcE0F39abB6DA2aE4d072DA78FA0A711cBB62764E',
+        baseTokenAddress: '0x300Dad6baD13ab3d4d44Ac7102a4f25c14cc1e82',
+        baseTokenDecimals: 18,
+        datatokenDecimals: 18,
+        fixedRate: '1', // this is the price
+        marketFee: '0',
+        marketFeeCollector: '0x0000000000000000000000000000000000000000'
+      }
+    }
+  },
+  [Network.OASISSAPPHIRE]: {
+    FREE: {
+      type: 'free'
+    },
+    FIXED_LOGGING: {
+      type: 'fixed',
+      freCreationParams: {
+        fixedRateAddress: '0xf26c6C93f9f1d725e149d95f8E7B2334a406aD10',
+        baseTokenAddress: '0x431aE822B6D59cc96dA181dB632396f58932dA9d',
+        baseTokenDecimals: 18,
         datatokenDecimals: 18,
         fixedRate: '1', // this is the price
         marketFee: '0',
