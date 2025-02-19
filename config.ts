@@ -4,8 +4,7 @@ export enum Network {
   GENX = 'GENX',
   PONTUSXDEV = 'PONTUSXDEV',
   PONTUSXTEST = 'PONTUSXTEST',
-  OASISSAPPHIRE = 'OASISSAPPHIRE',
-  OASISSAPPHIRE_DELTADAO = 'OASISSAPPHIRE_DELTADAO'
+  OASISSAPPHIRE = 'OASISSAPPHIRE' // Production MVP config
 }
 
 export const NETWORK_CONFIGS: {
@@ -52,35 +51,19 @@ export const NETWORK_CONFIGS: {
     nftFactoryAddress: '0x2C4d542ff791890D9290Eec89C9348A4891A6Fd2',
     providerAddress: '0x9546d39CE3E48BC942f0be4AA9652cBe0Aff3592'
   },
-  [Network.OASISSAPPHIRE]: {
+  [Network.OASISSAPPHIRE]: { // Production MVP config
     chainId: 23294,
     network: 'oasis_sapphire',
     metadataCacheUri: 'https://aquarius.main.pontus-x.eu',
-    nodeUri: 'https://mainnet-archive.sapphire.oasis.io', // 'https://rpc.main.pontus-x.eu/0953a56072a9a7ca46f57498453d2b3d',
+    nodeUri: 'https://rpc.main.pontus-x.eu/0953a56072a9a7ca46f57498453d2b3d',
     providerUri: 'https://provider.main.pontus-x.eu',
     subgraphUri: 'https://subgraph.main.pontus-x.eu',
     oceanTokenAddress: '0x39d22B78A7651A76Ffbde2aaAB5FD92666Aca520',
     oceanTokenSymbol: 'OCEAN',
-    fixedRateExchangeAddress: '0xf26c6C93f9f1d725e149d95f8E7B2334a406aD10',
-    dispenserAddress: '0x2112Eb973af1DBf83a4f11eda82f7a7527D7Fde5',
-    nftFactoryAddress: '0x80E63f73cAc60c1662f27D2DFd2EA834acddBaa8',
-    providerAddress: '0x566c1Bd445392Fd3bCd7D7D8D63dd0d8f3B14571',
-    sdk: 'oasis'
-  },
-  [Network.OASISSAPPHIRE_DELTADAO]: {
-    chainId: 23294,
-    network: 'oasis_sapphire',
-    metadataCacheUri: 'https://aquarius.main.pontus-x.eu',
-    nodeUri: 'https://mainnet-archive.sapphire.oasis.io', // 'https://rpc.main.pontus-x.eu/0953a56072a9a7ca46f57498453d2b3d',
-    providerUri: 'https://provider.main.pontus-x.eu',
-    subgraphUri: 'https://subgraph.main.pontus-x.eu',
-    oceanTokenAddress: '0x39d22B78A7651A76Ffbde2aaAB5FD92666Aca520',
-    oceanTokenSymbol: 'OCEAN',
-    fixedRateExchangeAddress: '0x0843409b24CBFBa40B7E4a857D4Bca9adbD90176',
-    dispenserAddress: '0xE0322FCF88f837A110dC297cc2F3EE31cf77231D',
-    nftFactoryAddress: '0x214A0a097746BEef33cb69a6e075DAeC90903977',
-    providerAddress: '0x566c1Bd445392Fd3bCd7D7D8D63dd0d8f3B14571',
-    sdk: 'oasis'
+    fixedRateExchangeAddress: '0xE0a3fd09646dDA15f119b6Ad9Fcd1A110c432e1E',
+    dispenserAddress: '0x9B7d696023Cf6f7Fbc8B7F4a9cEaACC46d7E9A24',
+    nftFactoryAddress: '0x2b4E0fA953Ac6f762cb0cC6736d257a0509C9f9B',
+    providerAddress: '0x566c1Bd445392Fd3bCd7D7D8D63dd0d8f3B14571'
   },
 }
 
@@ -185,35 +168,18 @@ export const PRICING_CONFIGS: PricingConfig = {
       }
     }
   },
-  [Network.OASISSAPPHIRE]: {
+  [Network.OASISSAPPHIRE]: { // Production MVP config
     FREE: {
       type: 'free'
     },
     FIXED_LOGGING: {
       type: 'fixed',
       freCreationParams: {
-        fixedRateAddress: '0xf26c6C93f9f1d725e149d95f8E7B2334a406aD10',
+        fixedRateAddress: '0xE0a3fd09646dDA15f119b6Ad9Fcd1A110c432e1E',
         baseTokenAddress: '0x431aE822B6D59cc96dA181dB632396f58932dA9d',
         baseTokenDecimals: 18,
         datatokenDecimals: 18,
-        fixedRate: '1', // this is the price
-        marketFee: '0',
-        marketFeeCollector: '0x0000000000000000000000000000000000000000'
-      }
-    }
-  },
-  [Network.OASISSAPPHIRE_DELTADAO]: {
-    FREE: {
-      type: 'free'
-    },
-    FIXED_LOGGING: {
-      type: 'fixed',
-      freCreationParams: {
-        fixedRateAddress: '0xf26c6C93f9f1d725e149d95f8E7B2334a406aD10',
-        baseTokenAddress: '0x431aE822B6D59cc96dA181dB632396f58932dA9d',
-        baseTokenDecimals: 18,
-        datatokenDecimals: 18,
-        fixedRate: '1', // this is the price
+        fixedRate: '2.95', // this is the price in PTX logging token, ONLY CHANGE THIS VALUE TO ADJUST THE PRICE
         marketFee: '0',
         marketFeeCollector: '0x0000000000000000000000000000000000000000'
       }
