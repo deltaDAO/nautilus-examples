@@ -11,7 +11,7 @@
   "author": "deltaDAO AG",
   "license": "Apache-2.0",
   "dependencies": {
-    "@deltadao/nautilus": "^1.0.1",
+    "@deltadao/nautilus": "^1.1.0",
     "dotenv": "^16.3.1",
     "ethers": "^5.7.2"
   },
