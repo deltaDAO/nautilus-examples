@@ -3,7 +3,7 @@ import { LogLevel, Nautilus } from '@deltadao/nautilus'
 import { Network, NETWORK_CONFIGS, PRICING_CONFIGS } from './config'
 import { Wallet, providers } from 'ethers'
 import { access } from './access'
-import { compute, getComputeStatus, retrieveComputeResult } from './compute'
+import { compute, edpsCompute, getComputeStatus, retrieveComputeResult } from './compute'
 import {
   publishAccessAlgorithm,
   publishAccessDataset,
@@ -100,7 +100,9 @@ async function main() {
 
   // COMPUTE FLOW
   // const computeJob = await compute(nautilus)
-  // await getComputeStatus(nautilus, networkConfig.providerUri, computeJob.jobId)
+  
+  const computeJob = await edpsCompute(nautilus) // EDPS DEMO
+  await getComputeStatus(nautilus, networkConfig.providerUri, computeJob.jobId) // EDPS DEMO
 
   // RETRIEVE RESULTS
   // await retrieveComputeResult(
