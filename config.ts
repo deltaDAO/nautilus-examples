@@ -131,7 +131,7 @@ export const PRICING_CONFIGS: PricingConfig = {
       freCreationParams: {
         fixedRateAddress: '0x8372715D834d286c9aECE1AcD51Da5755B32D505',
         baseTokenAddress: '0x852381bB887d3Cf4AEB9e1E9De3eB033AF82fBeE',
-        baseTokenDecimals: 6, // adapted for EUROe decimals
+        baseTokenDecimals: 6, // adapted for EURAU decimals
         datatokenDecimals: 18,
         fixedRate: '1', // this is the price
         marketFee: '0',
@@ -184,7 +184,7 @@ export const PRICING_CONFIGS: PricingConfig = {
       freCreationParams: {
         fixedRateAddress: '0xcE0F39abB6DA2aE4d072DA78FA0A711cBB62764E',
         baseTokenAddress: '0xE158265FD2be5BCc208621f2c0f8AfCF11aC8408',
-        baseTokenDecimals: 6, // adapted for EUROe decimals
+        baseTokenDecimals: 6, // adapted for EURAU decimals
         datatokenDecimals: 18,
         fixedRate: '1', // this is the price
         marketFee: '0',
