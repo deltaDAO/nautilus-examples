@@ -144,7 +144,7 @@ export async function publishAccessAlgorithm(
     .setServiceEndpoint(networkConfig.providerUri)
     .setTimeout(3600)
     .addFile(urlFile)
-    .setPricing(pricingConfig.FIXED_EUROE)
+    .setPricing(pricingConfig.FIXED_EURAU)
     .setDatatokenNameAndSymbol('Algorithm Access Token', 'AAT')
     .build()
 
@@ -266,7 +266,7 @@ export async function publishSaaSOffer(
     .setServiceEndpoint(networkConfig.providerUri)
     .setTimeout(3600) // 1 hour access to the service (timeout in seconds)
     .addFile(urlFile) // dummy file
-    .setPricing(pricingConfig.FIXED_EUROE) // use preconfigured pricing for EUROe
+    .setPricing(pricingConfig.FIXED_EURAU) // use preconfigured pricing for EURAU
     .setDatatokenNameAndSymbol('SaaS Access Token', 'SaaS-AT') // important for following access token transactions in the explorer
     .build()
 

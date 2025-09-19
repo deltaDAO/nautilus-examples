@@ -21,7 +21,7 @@ A TypeScript project showing [Nautilus](https://github.com/deltaDAO/nautilus) us
    | NETWORK     | `GENX`(DEPRECATED), `PONTUSXDEV`(For rapid testing), `PONTUSXTEST`(Staging environment for demos), `OASISSAPPHIRE`(Production MVP) |
    | PRIVATE_KEY | private key of your account (you can export this from MetaMask)                                                                    |
 
-   > The account needs to be funded with tokens. Depending on the example and network either `gx` (`GENX`) or EUROe (`PONTUSXDEV`, `PONTUSXTEST`) for the network fees are required. You can contact deltaDAO under contact@delta-dao.com to receive tokens and onboarding.
+   > The account needs to be funded with tokens. Depending on the example and network either `gx` (`GENX`) or EURAU (`PONTUSXDEV`, `PONTUSXTEST`) for the network fees are required. You can contact deltaDAO under contact@delta-dao.com to receive tokens and onboarding.
 
    > For the Oasis Sapphire (`OASISSAPPHIRE`) network `ROSE` tokens are required for the network fees and the logging token (`PTX`) for the after-payment logging.
 
